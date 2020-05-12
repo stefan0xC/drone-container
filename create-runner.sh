@@ -11,9 +11,10 @@ podman run \
 
 sleep 10
 
-podman exec docker docker run \
+podman exec docker docker run -d \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	--env-file /opt/drone \
 	-p 3000:3000 \
 	--name runner \
+	--rm \
 	drone/drone-runner-docker:1
